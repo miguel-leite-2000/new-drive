@@ -2,22 +2,21 @@ import Link from "next/link";
 import {
   NavigationMenu,
   NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  NavigationMenuViewport,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import React from "react";
+import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { navigations } from "@/helpers/navigations";
 
 export function Nav() {
+  const [open, setOpen] = useState<boolean>(false);
   return (
     <NavigationMenu>
-      <NavigationMenuList className="gap-5">
+      <NavigationMenuList className="flex-col items-start md:items-center md:flex-row gap-5">
         {navigations.map((navigation, index) => (
           <>
             {!Array.isArray(navigation.items) ? (
